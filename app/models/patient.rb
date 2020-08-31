@@ -5,4 +5,8 @@ class Patient < ApplicationRecord
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
+
+  def patient_id
+    "#{self.id}"
+  end
 end

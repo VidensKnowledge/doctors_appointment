@@ -1,10 +1,16 @@
 <h1>Add Appointment</h1>
 <%= form_with(model: [@doctor, @appointment], local: true, class: "ui form" ) do |f| %>
   <%= f.label :patient %>
-  <%= f.select :patient_id, @patients.collect { |u| [u.full_name, u.id] } %>
+  <%= f.select :patient_id, @doctor.appointments.collect { |u| [u.patient_id] } %>
   <br />
-  // <%= f.label :role %>
-  // <%= f.select :role, ['ta', 'teacher', 'student'] %>
   <br />
   <%= f.submit nil, class: "ui green button inverted" %>
 <% end %>
+
+
+
+<br />
+// Client enters first and last name. First and last name constitute a new user, so the create patient method
+// is invoked. This new client is then compared to current entries. if 
+// f.select :patient_id, @patients.collect
+// create a variable that contains all the current system patients and then use it to display to the f.select patient_id

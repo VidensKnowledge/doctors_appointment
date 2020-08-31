@@ -2,8 +2,6 @@ class AppointmentsController < ApplicationController
   before_action :set_doctor
   def index
     @appointments = @doctor.appointments.all
-    # @physicians = @doctor.appointments.where(role: 'Physician')
-    # @patients = @doctor.appointments.where(role: 'student')
   end
 
   def show
@@ -30,6 +28,6 @@ class AppointmentsController < ApplicationController
      @doctor = Doctor.find(params[:doctor_id]) 
    end
    def appointment_params
-     params.require(:appointment).permit(:patient_id)
+     params.require(:appointment).permit(:patient_id, :full_name, :id)
    end
 end
